@@ -29,7 +29,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-mod = "mod4"
+mod = "mod1"
 terminal = guess_terminal()
 
 keys = [
@@ -112,7 +112,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(num_columns=4, fair=True, border_on_single=True, border_width=3, border_normal="#101010", border_focus="#208150", border_focus_stack=["#208150", "#208150"], margin=8),
+    layout.Columns(num_columns=3, fair=True, border_on_single=True, border_width=3, border_normal="#202020", border_focus="#7058a4", border_focus_stack=["#208150", "#208150"], margin=8),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -148,12 +148,8 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("ultrawidable", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%A  |  %d/%m/%Y  |  %H:%M:%S %p  |"),
                 widget.QuickExit(),
             ],
             24,
